@@ -18,7 +18,8 @@ public class Suggestion {
 
     @Column
     private Date date;
-
+    @Embedded
+    private DoctorEntity doctorEntity;
     public Suggestion(){
     }
 
@@ -58,5 +59,14 @@ public class Suggestion {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+
+    public static class SuggestionBuilder {
+        private DoctorEntity doctorEntity;
+
+        public SuggestionBuilder(DoctorEntity doctorEntity){
+            this.doctorEntity=doctorEntity;
+        }
     }
 }
