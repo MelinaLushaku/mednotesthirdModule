@@ -6,15 +6,15 @@ public class PatientHelper implements Serializable {
 
     private String name;
     private String surname;
-
+private int personalNumber;
 
     public PatientHelper() {
     }
 
-    public PatientHelper(String name, String surname) {
+    public PatientHelper(String name, String surname, int personalNumber) {
         this.name = name;
         this.surname = surname;
-
+this.personalNumber=personalNumber;
     }
     public String getName(){return name;}
 
@@ -28,5 +28,13 @@ public class PatientHelper implements Serializable {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public void setPersonalNumber(int personalNumber) {
+        this.personalNumber = personalNumber;
+    }
+
+    public int getPersonalNumber() {
+        return personalNumber;
     }
 }

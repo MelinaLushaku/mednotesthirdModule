@@ -19,19 +19,13 @@ public class SuggestionHelper implements Serializable {
     public SuggestionHelper(){
     }
 
-    public SuggestionHelper(String title, String content, Date date) {
-        this.title = title;
+    public SuggestionHelper(String content) {
+
         this.content = content;
-        this.date = date;
+
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getContent() {
         return content;
@@ -41,11 +35,5 @@ public class SuggestionHelper implements Serializable {
         this.content = content;
     }
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }

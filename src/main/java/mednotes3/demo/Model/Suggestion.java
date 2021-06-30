@@ -11,22 +11,19 @@ public class Suggestion {
     private int suggestionId;
 
     @Column
-    private String title;
-
-    @Column
     private String content;
 
-    @Column
-    private Date date;
+
     @Embedded
-    private DoctorEntity doctorEntity;
+    private PatientEntity patientEntity;
     public Suggestion(){
     }
 
-    public Suggestion(String title, String content, Date date) {
-        this.title = title;
+    public Suggestion( String content, PatientEntity patientEntity) {
+
         this.content = content;
-        this.date = date;
+
+        this.patientEntity=patientEntity;
     }
 
     public int getSuggestionId() {
@@ -37,13 +34,7 @@ public class Suggestion {
         this.suggestionId = suggestionId;
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getContent() {
         return content;
@@ -53,20 +44,13 @@ public class Suggestion {
         this.content = content;
     }
 
-    public Date getDate() {
-        return date;
+
+
+    public PatientEntity getPatientEntity() {
+        return patientEntity;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-
-    public static class SuggestionBuilder {
-        private DoctorEntity doctorEntity;
-
-        public SuggestionBuilder(DoctorEntity doctorEntity){
-            this.doctorEntity=doctorEntity;
-        }
+    public void setPatientEntity(PatientEntity patientEntity) {
+        this.patientEntity = patientEntity;
     }
 }
