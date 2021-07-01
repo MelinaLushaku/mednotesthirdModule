@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 
 @Service
-public class SystemManagementModuleService {
+public class SystemManagementModuleService implements iSystemManagemntModuleService {
     public DoctorEntity doctorE(String name){
         RestTemplate restTemplate=new RestTemplate();
  String userServiceUrl="http://localhost:8090/api/systemManagement/doctor/searchDoctor/"+name;

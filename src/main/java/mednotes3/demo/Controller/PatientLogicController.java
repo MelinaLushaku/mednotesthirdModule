@@ -23,10 +23,20 @@ private  IPatientLogicService pls;
     @PostMapping ("/addSuggestion/{content}/{personalN}")
     public PatientResponse addSuggestion(@PathVariable String content,  @PathVariable int personalN) {
         PatientEntity pEe=this.pls.pacientiE(personalN);
-                Suggestion s=new Suggestion(content,pEe);
-                this.pls.addSuggestion(s);
-                return new PatientResponse.PatientResponseBuilder<>(202).setMesazhin("Suggestion sent").setData(s).build();
+
+               this.pls.addSuggestion(content, personalN);
+                return new PatientResponse.PatientResponseBuilder<>(202).setMesazhin("Suggestion sent").build();
         }
+
+@GetMapping("patient/allSuggestions")
+    public PatientResponse getAllSuggestions(){
+        List<Suggestion>lista=this.pls.allSuggestions();
+        if(lista.size()!=0){
+            return new PatientResponse.PatientResponseBuilder<>(202).setMesazhin("Lista e sukseshme").setData(lista).build();
+
+        }
+        return new PatientResponse.PatientResponseBuilder<>(402).setErrorin("there are no sugesstions").build();
+}
 
 
 }
