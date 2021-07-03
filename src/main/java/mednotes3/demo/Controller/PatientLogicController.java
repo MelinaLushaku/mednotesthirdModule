@@ -28,7 +28,7 @@ private  IPatientLogicService pls;
                 return new PatientResponse.PatientResponseBuilder<>(202).setMesazhin("Suggestion sent").build();
         }
 
-@GetMapping("patient/allSuggestions")
+@GetMapping("/allSuggestions")
     public PatientResponse getAllSuggestions(){
         List<Suggestion>lista=this.pls.allSuggestions();
         if(lista.size()!=0){

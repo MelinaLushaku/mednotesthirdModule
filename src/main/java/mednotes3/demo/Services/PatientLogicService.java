@@ -38,7 +38,8 @@ public class PatientLogicService implements  IPatientLogicService{
     @Override
     public PatientEntity pacientiE(int nrPersonal){
 
-        return this.smms.pacientiE(nrPersonal);
+      PatientEntity patE=this.smms.pacientiE(nrPersonal);
+      return patE;
     }
     @Override
     public List<Suggestion> allSuggestions(){return this.suggestionRepository.findAll();}
