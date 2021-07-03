@@ -8,6 +8,7 @@ public class PatientEntity {
 
     private String patientName;
     private String patientSurname;
+    private String patientEmail;
 
     // @Column(name="doctorPersonalNumber")
     @Column(nullable=true)
@@ -16,15 +17,15 @@ public class PatientEntity {
     public PatientEntity() {
     }
 
-    public PatientEntity(String patientName, String patientSurname , int patientPersonalNumber) {
+    public PatientEntity(String patientName, String patientSurname , int patientPersonalNumber,String patientEmail) {
         this.patientName =patientName;
         this.patientSurname = patientSurname;
         this.patientPersonalNumber = patientPersonalNumber;
+        this.patientEmail=patientEmail;
 
     }
 
-    public PatientEntity(String namePat, String surnamePat) {
-    }
+
 
     public void setPatientName(String patientName) {
         this.patientName = patientName;
@@ -48,5 +49,13 @@ public class PatientEntity {
 
     public String getPatientSurname() {
         return patientSurname;
+    }
+
+    public String getPatientEmail() {
+        return patientEmail;
+    }
+
+    public void setPatientEmail(String patientEmail) {
+        this.patientEmail = patientEmail;
     }
 }

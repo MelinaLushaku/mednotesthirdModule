@@ -27,8 +27,9 @@ public class SystemManagementModuleService implements iSystemManagemntModuleServ
         ResponseEntity<PatientHelper> responseEntity = restTemplate.getForEntity(userServiceUrl , PatientHelper.class );
         String emri = responseEntity.getBody().getName();
         String mbiemri = responseEntity.getBody().getSurname();
+        String email=responseEntity.getBody().getEmail();
         int nrpersonal2 = nrPersonal;
 
-        return new PatientEntity(emri,mbiemri,nrpersonal2);
+        return new PatientEntity(emri,mbiemri,nrpersonal2,email);
     }
 }
