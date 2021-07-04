@@ -19,7 +19,7 @@ public class PatientLogicController {
 private  IPatientLogicService pls;
 
 
-
+//done
     @PostMapping ("/addSuggestion/{content}/{personalN}")
     public PatientResponse addSuggestion(@PathVariable String content,  @PathVariable int personalN) {
         PatientEntity pEe=this.pls.pacientiE(personalN);
@@ -27,7 +27,7 @@ private  IPatientLogicService pls;
                this.pls.addSuggestion(content, personalN);
                 return new PatientResponse.PatientResponseBuilder<>(202).setMesazhin("Suggestion sent").build();
         }
-
+//done
 @GetMapping("/allSuggestions")
     public PatientResponse getAllSuggestions(){
         List<Suggestion>lista=this.pls.allSuggestions();
@@ -37,7 +37,7 @@ private  IPatientLogicService pls;
         }
         return new PatientResponse.PatientResponseBuilder<>(402).setErrorin("there are no sugesstions").build();
 }
-
+//done
     @PostMapping("/deleteSuggestion/{sugId}")
     public PatientResponse deleteAdvice(@PathVariable int sugId) {
       Suggestion s=this.pls.getSuggestion(sugId);
