@@ -38,5 +38,17 @@ private  IPatientLogicService pls;
         return new PatientResponse.PatientResponseBuilder<>(402).setErrorin("there are no sugesstions").build();
 }
 
+    @PostMapping("/deleteSuggestion/{sugId}")
+    public PatientResponse deleteAdvice(@PathVariable int sugId) {
+      Suggestion s=this.pls.getSuggestion(sugId);
 
+        if (s != null) {
+           this.pls.deleteSuggestion(s);
+
+                return new PatientResponse.PatientResponseBuilder<>(202).setMesazhin("Suggestion deleted").build();
+            }
+
+        return new PatientResponse.PatientResponseBuilder<>(402).setErrorin("You didnt choose a suggestion!").build();
+
+    }
 }

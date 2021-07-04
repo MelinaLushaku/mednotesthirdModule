@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PatientLogicService implements  IPatientLogicService{
@@ -26,10 +27,8 @@ public class PatientLogicService implements  IPatientLogicService{
     }
 
     @Override
-    public void deleteSuggestion(String content , int patientPersonalNr){
-        PatientEntity pat=this.smms.pacientiE(patientPersonalNr);
-        Suggestion s=this.suggestionRepository.findSuggestionByPat(patientPersonalNr);
-        this.suggestionRepository.delete(s);
+    public void deleteSuggestion(Suggestion s){
+          this.suggestionRepository.delete(s);
 
     }
 
@@ -43,5 +42,11 @@ public class PatientLogicService implements  IPatientLogicService{
     }
     @Override
     public List<Suggestion> allSuggestions(){return this.suggestionRepository.findAll();}
+
+    @Override
+    public Suggestion getSuggestion(int suggId){
+        Optional<Suggestion> sug=this.suggestionRepository.findById(suggId);
+        return sug.get();
+    }
 
 }

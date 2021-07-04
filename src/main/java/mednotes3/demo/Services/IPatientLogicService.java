@@ -9,5 +9,6 @@ public interface IPatientLogicService {
     void addSuggestion(String content,int patientPersonal);
   PatientEntity pacientiE(int nrPersonal);
 List<Suggestion> allSuggestions();
-    void deleteSuggestion(String content , int patientPersonalNr);
+    void deleteSuggestion( Suggestion s);
+    Suggestion getSuggestion(int suggId);
 }
